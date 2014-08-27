@@ -21,16 +21,3 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-package com.pmovil.toast;
-
-import com.codename1.system.NativeInterface;
-
-/**
- *
- * @author fabricio
- */
-public interface NativeToast extends NativeInterface {
-    public void showText(String text, int duration);
-    public boolean isShown();
-}
