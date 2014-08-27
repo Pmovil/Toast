@@ -4,6 +4,6 @@
 }
 
 -(BOOL)isShown;
--(int)showText:(NSString*)text duration:(int)duration;
+-(void)showText:(NSString*)param param1:(NSInteger)param1;
 -(BOOL)isSupported;
 @end

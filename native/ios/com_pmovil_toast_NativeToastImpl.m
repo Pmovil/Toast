@@ -1,5 +1,6 @@
 #import "com_pmovil_toast_NativeToastImpl.h"
-#import "iToast.h"
+#import "CodenameOne_GLViewController.h"
+#import "UIView+Toast.h"
 
 @implementation com_pmovil_toast_NativeToastImpl
 
@@ -8,16 +9,15 @@
     return YES;
 }
 
--(void)showText:(NSString*)param param1:(int)param1{
-    NSInteger SHORT_DELAY = 2000; // 2 seconds
-    NSInteger LONG_DELAY = 3500; // 3.5 seconds
-    if (duration == 0) {
-        duration = SHORT_DELAY;
-    } else if (duration == 1) {
-        duration = LONG_DELAY;
-    }
+-(void)showText:(NSString*)param param1:(NSInteger)param1{
     dispatch_sync(dispatch_get_main_queue(), ^{
-        [[[[iToast makeText:param]setGravity:iToastGravityBottom]setDuration:param1]show];
+        NSTimeInterval d = 3.5; // long
+        if (param1 == 0) { // short
+            d = 2.0;
+        }
+        [[CodenameOne_GLViewController instance].view makeToast:param
+                    duration:d
+                    position:@"center"];
     });
 }
 
