@@ -9,7 +9,16 @@
 }
 
 -(void)showText:(NSString*)param param1:(int)param1{
-    [[[[iToast makeText:param]setGravity:iToastGravityBottom]setDuration:param1]show];
+    NSInteger SHORT_DELAY = 2000; // 2 seconds
+    NSInteger LONG_DELAY = 3500; // 3.5 seconds
+    if (duration == 0) {
+        duration = SHORT_DELAY;
+    } else if (duration == 1) {
+        duration = LONG_DELAY;
+    }
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [[[[iToast makeText:param]setGravity:iToastGravityBottom]setDuration:param1]show];
+    });
 }
 
 -(BOOL)isSupported{
