@@ -50,9 +50,9 @@ public class Toast {
             if ( peer == null ) {
                 throw new RuntimeException("Toast is not implemented yet in this platform.");
             }
-            if ( !peer.isSupported() ){
-                throw new RuntimeException("Toast is not supported in this platform.");
-            }
+        }
+        if ( !peer.isSupported() ){
+            throw new RuntimeException("Toast is not supported in this platform.");
         }
         contextValue = context;
         Toast toast = new Toast(text, duration);
