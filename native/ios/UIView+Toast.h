@@ -3,7 +3,7 @@
 UIView+Toast.h
 Toast
 
-Copyright (c) 2013 Charles Scalesse.
+Copyright (c) 2014 Charles Scalesse.
  
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -30,6 +30,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+extern NSString * const CSToastPositionTop;
+extern NSString * const CSToastPositionCenter;
+extern NSString * const CSToastPositionBottom;
+
 @interface UIView (Toast)
 
 // each makeToast method creates a view and displays it as toast
@@ -47,5 +51,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // the showToast methods display any view as toast
 - (void)showToast:(UIView *)toast;
 - (void)showToast:(UIView *)toast duration:(NSTimeInterval)interval position:(id)point;
+- (void)showToast:(UIView *)toast duration:(NSTimeInterval)interval position:(id)point
+      tapCallback:(void(^)(void))tapCallback;
 
 @end
